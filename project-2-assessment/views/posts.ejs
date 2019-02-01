@@ -6,10 +6,29 @@
   </head>
   <body>
     <nav>
-      <a href="/">Home</a> |
-      <a href="/posts">Posts</a>
+      <a href="/">HOME</a> |
+      <a href="#" id="posts-link">ALL POSTS</a>
     </nav>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+
+    <table id="all-posts">
+        <tr><th>Title</th><th>Body</th><th>id</th><th>userId</th></tr>
+        <% posts.forEach( post => { %>
+            <tr><th><%= post.title %></th><th><%= post.body %></th><th><%= post.id %></th><th><%= post.userId %></th></th></tr>
+        <% }); %>
+    </table>
+
+    <script>
+        document.getElementById('posts-link').addEventListener('click', function () {
+            const table = document.getElementById('all-posts');
+
+            if (table.style.display === 'none') {
+                table.style.display = 'block';
+            } else {
+                table.style.display = 'none';
+            }
+        });
+    </script>
   </body>
 </html>

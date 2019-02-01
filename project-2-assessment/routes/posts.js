@@ -1,10 +1,12 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const posts = require('../posts');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.render('posts', {
-    title: 'Posts'
+    title: 'All Posts',
+    posts: posts
   })
 });
 
